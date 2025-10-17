@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e1e5e9;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card-header {
+            background: #ffffff;
+            color: #2d3748;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        /* Desktop and tablet layout */
+        @media (min-width: 769px) {
+            .card-header {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                text-align: left;
+                padding: 2rem;
+            }
+            
+            .avatar-section {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            
+            .name-section {
+                flex: 1;
+            }
+            
+            .user-name {
+                margin: 0 0 0.5rem 0;
+            }
+            
+            .user-title {
+                margin: 0;
+            }
+        }
+
+        .avatar-section {
+            margin-bottom: 1rem;
+        }
+
+        .avatar-figure {
+            margin: 0;
+            display: inline-block;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #b8daff;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .user-name {
+            font-family: 'Aleo', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0 0.5rem 0;
+            color: #2d3748;
+        }
+        
+        .user-title {
+            font-size: 1rem;
+            color: #718096;
+            margin: 0.5rem 0 0 0;
+            font-weight: 500;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .bio-section {
+            margin-bottom: 2rem;
+        }
+
+        .user-bio {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .time-section {
+            background: #f7f9fc;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+
+        .time-label {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-time {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4299e1;
+            font-family: 'Courier New', monospace;
+        }
+
+        .social-nav {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .social-nav h3 {
+            font-family: 'Aleo', serif;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            background: #b8daff;
+            color: #2d3748;
+            padding: 0.8rem;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #90cdf4;
+            width: 48px;
+            height: 48px;
+        }
+        
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .social-link:hover,
+        .social-link:focus {
+            background: #90cdf4;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(66, 153, 225, 0.2);
+            outline: 2px solid #4299e1;
+            outline-offset: 2px;
+        }
+
+        .lists-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .list-section {
+            background: #f7f9fc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #e1e5e9;
+            transition: border-color 0.3s ease;
+        }
+
+        .list-section:hover {
+            border-color: #b8daff;
+        }
+
+        .list-section h3 {
+            font-family: 'Aleo', serif;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hobbies-section h3::before {
+            content: "❤️";
+        }
+
+        .dislikes-section h3::before {
+            content: "👎";
+        }
+
+        .list {
+            list-style: none;
+        }
+
+        .list-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e1e5e9;
+            color: #4a5568;
+            transition: color 0.2s ease;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-item:hover {
+            color: #4299e1;
+        }
+
+        .list-item::before {
+            content: "• ";
+            color: #90cdf4;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .card-header {
+                padding: 1.5rem;
+            }
+
+            .user-name {
+                font-size: 1.5rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .card-content {
+                padding: 1.5rem;
+            }
+
+            .lists-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .social-link {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-header {
+                padding: 1rem;
+            }
+
+            .card-content {
+                padding: 1rem;
+            }
+
+            .user-name {
+                font-size: 1.3rem;
+            }
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .user-bio {
+                font-size: 1rem;
+            }
+
+            .social-link {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        *:focus {
+            outline: 2px solid #4299e1;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .profile-card {
+                border: 2px solid #000;
+            }
+            
+            .social-link {
+                border: 2px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="profile-card" data-testid="test-profile-card">
+        <header class="card-header">
+            <div class="avatar-section">
+                <figure class="avatar-figure">
+                    <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                        alt="Profile picture of Okeke Chukwuebuka Clinton" 
+                        class="avatar" 
+                        data-testid="test-user-avatar"
+                    >
+                </figure>
+            </div>
+            <div class="name-section">
+                <h2 class="user-name" data-testid="test-user-name">Okeke Chukwuebuka Clinton</h2>
+                <p class="user-title">Frontend Developer [Web & Mobile]</p>
+            </div>
+        </header>
+
+        <div class="card-content">
+            <section class="bio-section">
+                <p class="user-bio" data-testid="test-user-bio">
+                    Hi, I'm e6uka, a frontend developer with a product-first mindset. I'm passionate about 
+                    creating intuitive user experiences and building scalable web applications. I love 
+                    crafting clean, efficient code and staying up-to-date with the latest frontend 
+                    technologies and design trends.
+                </p>
+            </section>
+
+            <section class="time-section">
+                <div class="time-label">Timestamp</div>
+                <div class="user-time" data-testid="test-user-time" id="current-time">
+                    <!-- Time will be inserted here by JavaScript -->
+                </div>
+            </section>
+
+            <nav class="social-nav">
+                <h3>Connect with me</h3>
+                <ul class="social-links" data-testid="test-user-social-links">
+                    <li>
+                        <a 
+                            href="https://x.com/e6uka" 
+                            class="social-link" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            data-testid="test-user-social-twitter"
+                            title="Twitter/X"
+                        >
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="https://www.linkedin.com/in/chukwuebuka-okeke-3ba66123a/" 
+                            class="social-link" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            data-testid="test-user-social-linkedin"
+                            title="LinkedIn"
+                        >
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href="https://github.com/e6uka" 
+                            class="social-link" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            data-testid="test-user-social-github"
+                            title="GitHub"
+                        >
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="lists-container">
+                <section class="list-section hobbies-section">
+                    <h3>Hobbies</h3>
+                    <ul class="list" data-testid="test-user-hobbies">
+                        <li class="list-item">Video games</li>
+                        <li class="list-item">Tennis</li>
+                        <li class="list-item">Football</li>
+                        <li class="list-item">Listening to music</li>
+                        <li class="list-item">Random research</li>
+                    </ul>
+                </section>
+
+                <section class="list-section dislikes-section">
+                    <h3>Dislikes</h3>
+                    <ul class="list" data-testid="test-user-dislikes">
+                        <li class="list-item">Traffic jams</li>
+                        <li class="list-item">Poorly written code</li>
+                        <li class="list-item">Houseflies</li>
+                        <li class="list-item">Loud chewing</li>
+                        <li class="list-item">Spam emails</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        function initializeTime() {
+            const timeElement = document.getElementById('current-time');
+            if (!timeElement) return;
+            
+            // Set current timestamp
+            timeElement.textContent = Date.now().toString();
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeTime);
+    </script>
+</body>
+</html>
