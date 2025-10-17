@@ -374,7 +374,7 @@
             </section>
 
             <section class="time-section">
-                <div class="time-label">Timestamp</div>
+                <div class="time-label">Current Time</div>
                 <div class="user-time" data-testid="test-user-time" id="current-time">
                     <!-- Time will be inserted here by JavaScript -->
                 </div>
@@ -459,7 +459,7 @@
             const timeElement = document.getElementById('current-time');
             if (!timeElement) return;
             
-            // Set current timestamp
+            // Set current time
             timeElement.textContent = Date.now().toString();
         }
         
