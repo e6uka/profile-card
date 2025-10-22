@@ -368,23 +368,24 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
     
-        .about-me-section {
-            padding: 2rem 0;
-            text-align: center;
+        main[data-testid="test-about-page"] section {
+            margin-bottom: 2.5rem;
         }
-        .about-me-section h2 {
+
+        main[data-testid="test-about-page"] h3 {
             font-family: 'Aleo', serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: #2d3748;
+            border-bottom: 2px solid #e1e5e9;
+            padding-bottom: 0.5rem;
         }
-        .about-me-section p {
+
+        main[data-testid="test-about-page"] p {
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.7;
             color: #4a5568;
-            max-width: 650px;
-            margin: 0 auto 1.5rem auto;
         }
 
     </style>
@@ -414,11 +415,28 @@
                 <a href="about.html" class="active">About Me</a>
                 <a href="contact.html">Contact</a>
             </nav>
-            <section class="about-me-section">
-                <h2>About Me</h2>
-                <p>Hi, I'm e6uka, a frontend developer with a product-first mindset. I'm passionate about creating intuitive user experiences and building scalable web applications. I love crafting clean, efficient code and staying up-to-date with the latest frontend technologies and design trends.</p>
-                <p>When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and sharing my knowledge with the developer community. I'm a firm believer in continuous learning and am always looking for new challenges to grow my skills.</p>
-            </section>
+            <main data-testid="test-about-page">
+                <section data-testid="test-about-bio">
+                    <h3>Bio</h3>
+                    <p>I am a passionate frontend developer with a keen eye for design and a love for creating intuitive and dynamic user experiences. I am always eager to learn new technologies and improve my skills.</p>
+                </section>
+                <section data-testid="test-about-goals">
+                    <h3>Goals in this program</h3>
+                    <p>My main goal is to become a more proficient web developer. I want to sharpen my knowledge of web technologies because I barely get to practice web at work.</p>
+                </section>
+                <section data-testid="test-about-confidence">
+                    <h3>Areas of low confidence</h3>
+                    <p>I need to build more confidence in my backend skills, particularly in database management and server-side logic. I also want to get better at writing comprehensive unit and integration tests.</p>
+                </section>
+                <section data-testid="test-about-future-note">
+                    <h3>Note to future self</h3>
+                    <p>Never stop learning and pushing your boundaries. Remember the excitement you feel now when you build something new and let that drive you to create amazing things.</p>
+                </section>
+                <section data-testid="test-about-extra">
+                    <h3>Extra thoughts</h3>
+                    <p>I am excited to be part of this program and look forward to collaborating with and learning from my peers. I believe that teamwork and a supportive community are key to growth and success.</p>
+                </section>
+            </main>
         </div>
     </article>
 

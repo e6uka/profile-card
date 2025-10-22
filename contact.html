@@ -108,241 +108,6 @@
             padding: 2rem;
         }
 
-        .bio-section {
-            margin-bottom: 2rem;
-        }
-
-        .user-bio {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #4a5568;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .time-section {
-            background: #f7f9fc;
-            border: 1px solid #e1e5e9;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-
-
-        .time-label {
-            font-size: 0.9rem;
-            color: #718096;
-            margin-bottom: 0.5rem;
-        }
-
-        .user-time {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #4299e1;
-            font-family: 'Courier New', monospace;
-        }
-
-        .social-nav {
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .social-nav h3 {
-            font-family: 'Aleo', serif;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .social-links {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            background: #b8daff;
-            color: #2d3748;
-            padding: 0.8rem;
-            text-decoration: none;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #90cdf4;
-            width: 48px;
-            height: 48px;
-        }
-        
-        .social-link svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        .social-link:hover,
-        .social-link:focus {
-            background: #90cdf4;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(66, 153, 225, 0.2);
-            outline: 2px solid #4299e1;
-            outline-offset: 2px;
-        }
-
-        .lists-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .list-section {
-            background: #f7f9fc;
-            border-radius: 8px;
-            padding: 1.5rem;
-            border: 1px solid #e1e5e9;
-            transition: border-color 0.3s ease;
-        }
-
-        .list-section:hover {
-            border-color: #b8daff;
-        }
-
-        .list-section h3 {
-            font-family: 'Aleo', serif;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .hobbies-section h3::before {
-            content: "❤️";
-        }
-
-        .dislikes-section h3::before {
-            content: "👎";
-        }
-
-        .list {
-            list-style: none;
-        }
-
-        .list-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e1e5e9;
-            color: #4a5568;
-            transition: color 0.2s ease;
-        }
-
-        .list-item:last-child {
-            border-bottom: none;
-        }
-
-        .list-item:hover {
-            color: #4299e1;
-        }
-
-        .list-item::before {
-            content: "• ";
-            color: #90cdf4;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .card-header {
-                padding: 1.5rem;
-            }
-
-            .user-name {
-                font-size: 1.5rem;
-            }
-
-            .avatar {
-                width: 100px;
-                height: 100px;
-            }
-
-            .card-content {
-                padding: 1.5rem;
-            }
-
-            .lists-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .social-link {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .card-header {
-                padding: 1rem;
-            }
-
-            .card-content {
-                padding: 1rem;
-            }
-
-            .user-name {
-                font-size: 1.3rem;
-            }
-
-            .avatar {
-                width: 80px;
-                height: 80px;
-            }
-
-            .user-bio {
-                font-size: 1rem;
-            }
-
-            .social-link {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
-        /* Focus styles for accessibility */
-        *:focus {
-            outline: 2px solid #4299e1;
-            outline-offset: 2px;
-        }
-
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            .profile-card {
-                border: 2px solid #000;
-            }
-            
-            .social-link {
-                border: 2px solid #000;
-            }
-        }
-
         .main-nav {
             text-align: center;
             margin-bottom: 2rem;
@@ -435,6 +200,18 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        #success-message {
+            background-color: #c6f6d5;
+            color: #22543d;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -465,36 +242,98 @@
             <section class="contact-section">
                 <h2>Contact Me</h2>
                 <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Fill out the form below and I'll get back to you as soon as possible.</p>
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form" novalidate>
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                        <input type="text" id="name" name="name" required data-testid="test-contact-name" aria-describedby="error-name">
+                        <div class="error-message" id="error-name" data-testid="test-contact-error-name"></div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        <input type="email" id="email" name="email" required data-testid="test-contact-email" aria-describedby="error-email">
+                        <div class="error-message" id="error-email" data-testid="test-contact-error-email"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required data-testid="test-contact-subject" aria-describedby="error-subject">
+                        <div class="error-message" id="error-subject" data-testid="test-contact-error-subject"></div>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="How can I help you?"></textarea>
+                        <textarea id="message" name="message" rows="6" required data-testid="test-contact-message" aria-describedby="error-message"></textarea>
+                        <div class="error-message" id="error-message" data-testid="test-contact-error-message"></div>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit" data-testid="test-contact-submit">Send Message</button>
                 </form>
+                <div id="success-message" data-testid="test-contact-success" style="display: none;">
+                    <p>Thank you for your message! I will get back to you shortly.</p>
+                </div>
             </section>
         </div>
     </article>
 
     <script>
-        function initializeTime() {
-            const timeElement = document.getElementById('current-time');
-            if (!timeElement) return;
-            
-            // Set current time
-            timeElement.textContent = Date.now().toString();
-        }
-        
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initializeTime);
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact-form');
+            if (form) {
+                const successMessage = document.getElementById('success-message');
+
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    let isValid = true;
+
+                    // Clear previous errors
+                    const errorMessages = form.querySelectorAll('.error-message');
+                    errorMessages.forEach(error => error.textContent = '');
+                    const inputs = form.querySelectorAll('input, textarea');
+                    inputs.forEach(input => input.removeAttribute('aria-invalid'));
+
+                    // Name validation
+                    const name = document.getElementById('name');
+                    if (name.value.trim() === '') {
+                        isValid = false;
+                        showError('name', 'Full name is required.');
+                    }
+
+                    // Email validation
+                    const email = document.getElementById('email');
+                    const emailPattern = /^[^S@]+@[^S@]+\.[^S@]+$/;
+                    if (email.value.trim() === '') {
+                        isValid = false;
+                        showError('email', 'Email is required.');
+                    } else if (!emailPattern.test(email.value)) {
+                        isValid = false;
+                        showError('email', 'Please enter a valid email address.');
+                    }
+
+                    // Subject validation
+                    const subject = document.getElementById('subject');
+                    if (subject.value.trim() === '') {
+                        isValid = false;
+                        showError('subject', 'Subject is required.');
+                    }
+
+                    // Message validation
+                    const message = document.getElementById('message');
+                    if (message.value.trim().length < 10) {
+                        isValid = false;
+                        showError('message', 'Message must be at least 10 characters long.');
+                    }
+
+                    if (isValid) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+                    }
+                });
+
+                function showError(field, message) {
+                    const errorElement = document.getElementById('error-' + field);
+                    errorElement.textContent = message;
+                    const inputElement = document.getElementById(field);
+                    inputElement.setAttribute('aria-invalid', 'true');
+                }
+            }
+        });
     </script>
 </body>
 </html>
