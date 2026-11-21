@@ -1,54 +1,31 @@
-# 🧑‍💻 Profile Card Website
+# Profile Card
 
-A simple, responsive **Profile Card Website** built with HTML, CSS, and JavaScript.
-It includes a Home page, an About Me page, and a Contact page.
+A three-page personal profile site built with plain HTML, CSS and JavaScript. It was made as a front-end exercise and carries `data-testid` attributes on its key elements for automated tests.
 
--   **Home Page**: Displays basic user information, hobbies, dislikes, and social links — with a dynamic timestamp.
--   **About Me Page**: A reflective page with sections for a bio, goals, areas of low confidence, a note to the future self, and extra thoughts.
--   **Contact Page**: A simple and accessible contact form with real-time validation.
+- Home: a profile card with name, bio, social links and the current time in milliseconds (`Date.now()`)
+- About Me: sections for bio, goals, areas of low confidence, a note to a future self and extra thoughts
+- Contact: a form that validates name, email, subject and message and shows an error under each field
 
----
+Live site: https://e6uka.github.io/profile-card/
 
-## 🌐 Live Demo
-**👉 [View Live Project](https://e6uka.github.io/profile-card/)**
+## Stack
 
----
+HTML, CSS and JavaScript with no build step and no dependencies. The Aleo font is loaded from Google Fonts.
 
-## 🧠 Features
--   **Multi-Page Navigation**: Easily switch between Home, About Me, and Contact pages.
--   **Responsive and Accessible Layout**: Mobile-first design, semantic HTML, and ARIA attributes for accessibility.
--   **Dynamic Timestamp**: The home page displays a dynamic timestamp using `Date.now()`.
--   **Contact Form Validation**: The contact form provides real-time validation for all fields, with clear error messages.
--   **Google Fonts Integration**: Uses the `Aleo` font for a clean and modern look.
--   **Hover and Focus Animations**: Smooth animations for a better user experience.
--   **Tested for QA**: Key elements include `data-testid` attributes for automated testing.
+## Getting started
 
----
+Open `index.html` in a browser, or serve the folder:
 
-## 🛠️ Tech Stack
--   **HTML5**
--   **CSS3**
--   **JavaScript (ES6)**
+```bash
+npx serve
+```
 
----
+## Files
 
-## 📦 How to Run Locally
+- `index.html`, `about.html`, `contact.html`: the three pages, each with its own inline styles and script
+- `1 1.png`: the avatar image
+- `NOTES.md`: a manual test script for page load, mobile layout and accessibility
 
-1.  **Clone this repository**
-    ```bash
-    git clone https://github.com/e6uka/profile-card.git
-    ```
+## Deployment
 
-2.  Navigate into the folder
-    ```bash
-    cd profile-card
-    ```
-
-3.  Open `index.html` in your browser. You can do this by double-clicking the file 
-        or 
-            by starting a local server.
-
-            ```bash
-                npx serve
-                ```
-    Then visit http://localhost:3000
+Published with GitHub Pages from the default branch.
